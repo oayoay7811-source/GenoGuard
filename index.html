@@ -372,6 +372,70 @@
         margin-right: 260px;
       }
       
+      /* Mobile Menu Backdrop */
+      .mobile-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .mobile-backdrop.active {
+        display: block;
+        opacity: 1;
+      }
+
+      /* Mobile Menu Toggle */
+      .mobile-menu-toggle {
+        display: none;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+        z-index: 2000;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        padding: 0.75rem;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-toggle:hover {
+        background: var(--primary-dark);
+        transform: scale(1.05);
+      }
+
+      .mobile-menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+      }
+
+      .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .mobile-menu-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
+      }
+
+      /* Tablet and below */
       @media (max-width: 968px) {
         header, .description-header, main, footer {
           margin-right: 0;
@@ -379,17 +443,311 @@
         
         .sidebar {
           transform: translateX(100%);
+          transition: transform 0.3s ease;
+        }
+
+        .sidebar.active {
+          transform: translateX(0);
+        }
+
+        .mobile-menu-toggle {
+          display: block;
         }
         
         .stats-grid {
           grid-template-columns: 1fr;
         }
+
+        .header-features {
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+      }
+
+      /* Mobile phones */
+      @media (max-width: 768px) {
+        body {
+          font-size: 14px;
+        }
+
+        header {
+          padding: 1rem;
+        }
+
+        .header-logo {
+          height: 80px;
+          max-width: 300px;
+        }
+
+        header h1 {
+          font-size: 1.4rem;
+          margin-bottom: 0.25rem;
+        }
+
+        header p {
+          font-size: 0.85rem;
+        }
+
+        .description-header {
+          padding: 2rem 1rem;
+        }
+
+        .header-description-text {
+          font-size: 0.95rem;
+          line-height: 1.6;
+          margin-bottom: 1rem;
+        }
+
+        .header-features {
+          grid-template-columns: 1fr;
+          gap: 0.75rem;
+        }
+
+        .header-feature {
+          font-size: 0.85rem;
+          padding: 0.75rem 1rem;
+        }
+
+        main {
+          padding: 1.5rem 1rem;
+          margin-right: 0;
+        }
+
+        .section {
+          padding: 1.5rem;
+          margin-bottom: 1.5rem;
+          border-radius: 12px;
+        }
+
+        .section-title {
+          font-size: 1.25rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+          margin: 1.5rem 0;
+        }
+
+        .stat-card {
+          padding: 1.25rem;
+        }
+
+        .stat-number {
+          font-size: 1.75rem;
+        }
+
+        .stat-label {
+          font-size: 0.85rem;
+        }
+
+        /* Member cards grid - stack on mobile */
+        div[style*="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr))"] {
+          display: grid !important;
+          grid-template-columns: 1fr !important;
+          gap: 1rem !important;
+        }
+
+        .member-card {
+          padding: 1.25rem;
+          margin-bottom: 1rem;
+        }
+
+        .member-name {
+          font-size: 1rem;
+        }
+
+        .member-info, .condition-list {
+          font-size: 0.8rem;
+        }
+
+        .analysis-card {
+          padding: 1.5rem;
+          margin-bottom: 1.25rem;
+          border-radius: 12px;
+        }
+
+        .analysis-card-title {
+          font-size: 1.1rem;
+          padding: 0.625rem 0.875rem;
+        }
+
+        .analysis-card-content {
+          font-size: 0.875rem;
+          line-height: 1.7;
+        }
+
+        .analysis-card-content ul,
+        .result-box ul {
+          padding-right: 1.25rem;
+          margin: 0.75rem 0;
+        }
+
+        .analysis-card-content li,
+        .result-box li {
+          margin-bottom: 0.5rem;
+          font-size: 0.85rem;
+        }
+
+        /* Charts container */
+        div[style*="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))"],
+        div[style*="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))"] {
+          display: grid !important;
+          grid-template-columns: 1fr !important;
+          gap: 1.5rem !important;
+        }
+
+        /* Result box */
+        .result-box {
+          padding: 1.5rem;
+          margin: 1.5rem 0;
+          line-height: 1.8;
+        }
+
+        .result-box h2 {
+          font-size: 1.4rem;
+          margin-bottom: 1.25rem;
+        }
+
+        .result-box h3 {
+          font-size: 1.15rem;
+          margin: 1.5rem 0 0.75rem;
+        }
+
+        .result-box p {
+          font-size: 0.875rem;
+          margin-bottom: 0.75rem;
+        }
+
+        /* Footer */
+        footer {
+          padding: 1.5rem 1rem;
+          margin-top: 3rem;
+        }
+
+        footer p {
+          font-size: 0.85rem;
+        }
+
+        /* Sidebar on mobile */
+        .sidebar {
+          width: 280px;
+          box-shadow: -8px 0 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar-title {
+          font-size: 1.1rem;
+        }
+
+        .sidebar-nav-link {
+          padding: 0.75rem 1.25rem;
+          font-size: 0.9rem;
+        }
+
+        /* Tagline banner */
+        div[style*="margin-right: 260px"] {
+          margin-right: 0 !important;
+          padding: 1rem 1rem !important;
+        }
+
+        div[style*="margin-right: 260px"] p {
+          font-size: 1rem !important;
+        }
+      }
+
+      /* Small phones */
+      @media (max-width: 480px) {
+        header h1 {
+          font-size: 1.2rem;
+        }
+
+        header p {
+          font-size: 0.75rem;
+        }
+
+        .header-logo {
+          height: 60px;
+          max-width: 250px;
+        }
+
+        .description-header {
+          padding: 1.5rem 0.75rem;
+        }
+
+        .header-description-text {
+          font-size: 0.875rem;
+        }
+
+        .header-feature {
+          font-size: 0.8rem;
+          padding: 0.625rem 0.875rem;
+        }
+
+        main {
+          padding: 1rem 0.75rem;
+        }
+
+        .section {
+          padding: 1.25rem;
+        }
+
+        .section-title {
+          font-size: 1.1rem;
+        }
+
+        .analysis-card {
+          padding: 1.25rem;
+        }
+
+        .analysis-card-title {
+          font-size: 1rem;
+        }
+
+        .result-box {
+          padding: 1.25rem;
+        }
+
+        .result-box h2 {
+          font-size: 1.25rem;
+        }
+
+        .result-box h3 {
+          font-size: 1.05rem;
+        }
+
+        .sidebar {
+          width: 260px;
+        }
+
+        /* Stat cards */
+        .stat-number {
+          font-size: 1.5rem;
+        }
+
+        .stat-label {
+          font-size: 0.8rem;
+        }
+
+        /* Charts */
+        canvas {
+          max-height: 250px !important;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- Mobile Backdrop -->
+    <div class="mobile-backdrop" id="mobileBackdrop"></div>
+
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="فتح القائمة">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <!-- Sidebar -->
-    <nav class="sidebar">
+    <nav class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">التنقل</h2>
       </div>
@@ -924,6 +1282,38 @@
     </footer>
 
     <script>
+      // Mobile menu toggle
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const sidebar = document.getElementById('sidebar');
+      const mobileBackdrop = document.getElementById('mobileBackdrop');
+      
+      function closeSidebar() {
+        if (sidebar) sidebar.classList.remove('active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        if (mobileBackdrop) mobileBackdrop.classList.remove('active');
+      }
+
+      function openSidebar() {
+        if (sidebar) sidebar.classList.add('active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+        if (mobileBackdrop) mobileBackdrop.classList.add('active');
+      }
+
+      if (mobileMenuToggle && sidebar) {
+        mobileMenuToggle.addEventListener('click', function() {
+          if (sidebar.classList.contains('active')) {
+            closeSidebar();
+          } else {
+            openSidebar();
+          }
+        });
+
+        // Close sidebar when clicking on backdrop
+        if (mobileBackdrop) {
+          mobileBackdrop.addEventListener('click', closeSidebar);
+        }
+      }
+
       // Smooth scrolling
       document.querySelectorAll('.sidebar-nav-link').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -936,6 +1326,11 @@
           const targetSection = document.getElementById(targetId);
           if (targetSection) {
             targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+
+          // Close sidebar on mobile after clicking a link
+          if (window.innerWidth <= 968) {
+            closeSidebar();
           }
         });
       });
