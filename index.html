@@ -371,6 +371,27 @@
         border-top: 2px solid var(--border);
         margin-right: 260px;
       }
+
+      /* Chart container animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      canvas {
+        animation: fadeInUp 1s ease-out;
+      }
+
+      /* Enhanced chart hover effects */
+      canvas:hover {
+        cursor: pointer;
+      }
       
       /* Mobile Menu Backdrop */
       .mobile-backdrop {
@@ -965,21 +986,21 @@
           <!-- Charts Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 2rem;">
             <!-- Risk Distribution Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(59, 130, 246, 0.25);">
-              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">توزيع الخطورة</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
+              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.15rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">📊 توزيع الخطورة</h4>
               <canvas id="riskDistributionChart" style="max-height: 300px;"></canvas>
             </div>
             
             <!-- Disease Prevalence Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(59, 130, 246, 0.25);">
-              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">معدلات انتشار الأمراض</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
+              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.15rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">📈 معدلات انتشار الأمراض</h4>
               <canvas id="diseasePrevalenceChart" style="max-height: 300px;"></canvas>
             </div>
           </div>
           
           <!-- Generation Comparison Chart (Full Width) -->
-          <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 1px solid rgba(59, 130, 246, 0.25); margin-top: 2rem;">
-            <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">مقارنة الصحة حسب الأجيال</h4>
+          <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); margin-top: 2rem; transition: all 0.3s ease;">
+            <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.15rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">👨‍👩‍👧‍👦 مقارنة الصحة حسب الأجيال</h4>
             <canvas id="generationComparisonChart" style="max-height: 350px;"></canvas>
           </div>
         </div>
@@ -999,56 +1020,56 @@
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; justify-items: center;">
             
             <!-- Diabetes Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(239, 68, 68, 0.4); width: 100%; max-width: 400px;">
-              <h4 style="color: #fca5a5; font-size: 1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">السكري من النوع 2</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(239, 68, 68, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fca5a5; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🩺 السكري من النوع 2</h4>
               <canvas id="diabetesChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(239, 68, 68, 0.2);">
-                <span style="color: rgba(252, 165, 165, 0.9); font-size: 0.9rem; font-weight: 600;">معدل الانتشار: 33%</span>
+              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(239, 68, 68, 0.3);">
+                <span style="color: rgba(252, 165, 165, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 33%</span>
               </div>
             </div>
 
             <!-- Hypertension Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(239, 68, 68, 0.4); width: 100%; max-width: 400px;">
-              <h4 style="color: #fca5a5; font-size: 1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">ارتفاع ضغط الدم</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(239, 68, 68, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fca5a5; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">💓 ارتفاع ضغط الدم</h4>
               <canvas id="hypertensionChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(239, 68, 68, 0.2);">
-                <span style="color: rgba(252, 165, 165, 0.9); font-size: 0.9rem; font-weight: 600;">معدل الانتشار: 44%</span>
+              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(239, 68, 68, 0.3);">
+                <span style="color: rgba(252, 165, 165, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 44%</span>
               </div>
             </div>
 
             <!-- Heart Disease Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(245, 158, 11, 0.4); width: 100%; max-width: 400px;">
-              <h4 style="color: #fbbf24; font-size: 1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">أمراض القلب</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fbbf24; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">❤️ أمراض القلب</h4>
               <canvas id="heartDiseaseChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(245, 158, 11, 0.2);">
-                <span style="color: rgba(251, 191, 36, 0.9); font-size: 0.9rem; font-weight: 600;">معدل الانتشار: 22%</span>
+              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
+                <span style="color: rgba(251, 191, 36, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 22%</span>
               </div>
             </div>
 
             <!-- Cancer Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(245, 158, 11, 0.4); width: 100%; max-width: 400px;">
-              <h4 style="color: #fbbf24; font-size: 1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">سرطان القولون</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fbbf24; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🎗️ سرطان القولون</h4>
               <canvas id="cancerChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(245, 158, 11, 0.2);">
-                <span style="color: rgba(251, 191, 36, 0.9); font-size: 0.9rem; font-weight: 600;">معدل الانتشار: 11%</span>
+              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
+                <span style="color: rgba(251, 191, 36, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 11%</span>
               </div>
             </div>
 
             <!-- Arthritis Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(16, 185, 129, 0.4); width: 100%; max-width: 400px;">
-              <h4 style="color: #6ee7b7; font-size: 1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">التهاب المفاصل</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(16, 185, 129, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #6ee7b7; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🦴 التهاب المفاصل</h4>
               <canvas id="arthritisChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(16, 185, 129, 0.2);">
-                <span style="color: rgba(110, 231, 183, 0.9); font-size: 0.9rem; font-weight: 600;">معدل الانتشار: 11%</span>
+              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(16, 185, 129, 0.3);">
+                <span style="color: rgba(110, 231, 183, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 11%</span>
               </div>
             </div>
 
             <!-- High Cholesterol Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 12px; padding: 1.5rem; border: 2px solid rgba(245, 158, 11, 0.4); width: 100%; max-width: 400px;">
-              <h4 style="color: #fbbf24; font-size: 1rem; font-weight: 600; margin: 0 0 1rem 0; text-align: center;">ارتفاع الكوليسترول</h4>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fbbf24; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🩸 ارتفاع الكوليسترول</h4>
               <canvas id="cholesterolChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(245, 158, 11, 0.2);">
-                <span style="color: rgba(251, 191, 36, 0.9); font-size: 0.9rem; font-weight: 600;">معدل الانتشار: 22%</span>
+              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
+                <span style="color: rgba(251, 191, 36, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 22%</span>
               </div>
             </div>
 
@@ -1362,7 +1383,7 @@
         Chart.defaults.font.family = "'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif";
         Chart.defaults.color = '#cbd5e1';
 
-        // 1. Risk Distribution Chart (Pie Chart)
+        // 1. Risk Distribution Chart (Enhanced Doughnut Chart)
         const riskCtx = document.getElementById('riskDistributionChart');
         if (riskCtx) {
           new Chart(riskCtx, {
@@ -1372,41 +1393,62 @@
               datasets: [{
                 data: [3, 2, 1],
                 backgroundColor: [
-                  'rgba(239, 68, 68, 0.8)',
-                  'rgba(245, 158, 11, 0.8)',
-                  'rgba(16, 185, 129, 0.8)'
+                  'rgba(239, 68, 68, 0.9)',
+                  'rgba(245, 158, 11, 0.9)',
+                  'rgba(16, 185, 129, 0.9)'
                 ],
                 borderColor: [
                   'rgba(239, 68, 68, 1)',
                   'rgba(245, 158, 11, 1)',
                   'rgba(16, 185, 129, 1)'
                 ],
-                borderWidth: 2
+                borderWidth: 3,
+                hoverOffset: 15,
+                hoverBorderWidth: 4,
+                hoverBorderColor: '#fff'
               }]
             },
             options: {
               responsive: true,
               maintainAspectRatio: true,
+              cutout: '65%',
+              animation: {
+                animateRotate: true,
+                animateScale: true,
+                duration: 1500,
+                easing: 'easeInOutQuart'
+              },
               plugins: {
                 legend: {
                   position: 'bottom',
                   labels: {
                     color: '#cbd5e1',
-                    font: { size: 13, family: "'IBM Plex Sans Arabic', sans-serif" },
-                    padding: 15
+                    font: { 
+                      size: 14, 
+                      family: "'IBM Plex Sans Arabic', sans-serif",
+                      weight: '600'
+                    },
+                    padding: 18,
+                    usePointStyle: true,
+                    pointStyle: 'circle'
                   }
                 },
                 tooltip: {
-                  backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                  backgroundColor: 'rgba(15, 23, 42, 0.98)',
                   titleColor: '#fff',
                   bodyColor: '#cbd5e1',
-                  borderColor: 'rgba(59, 130, 246, 0.5)',
-                  borderWidth: 1,
-                  padding: 12,
+                  borderColor: 'rgba(59, 130, 246, 0.6)',
+                  borderWidth: 2,
+                  padding: 16,
                   displayColors: true,
+                  titleFont: { size: 15, weight: 'bold' },
+                  bodyFont: { size: 14 },
+                  cornerRadius: 8,
                   callbacks: {
                     label: function(context) {
-                      return context.label + ': ' + context.parsed + ' حالة';
+                      const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                      const percentage = ((context.parsed / total) * 100).toFixed(1);
+                      return context.label + ': ' + context.parsed + ' حالة (' + percentage + '%)';
                     }
                   }
                 }
@@ -1415,9 +1457,19 @@
           });
         }
 
-        // 2. Disease Prevalence Chart (Bar Chart)
+        // 2. Disease Prevalence Chart (Enhanced Bar Chart with Gradients)
         const prevalenceCtx = document.getElementById('diseasePrevalenceChart');
         if (prevalenceCtx) {
+          // Create gradients for each bar
+          const ctx = prevalenceCtx.getContext('2d');
+          
+          const createGradient = (ctx, color1, color2) => {
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, color1);
+            gradient.addColorStop(1, color2);
+            return gradient;
+          };
+          
           new Chart(prevalenceCtx, {
             type: 'bar',
             data: {
@@ -1426,12 +1478,12 @@
                 label: 'معدل الانتشار (%)',
                 data: [44, 33, 22, 22, 11, 11],
                 backgroundColor: [
-                  'rgba(239, 68, 68, 0.7)',
-                  'rgba(239, 68, 68, 0.7)',
-                  'rgba(245, 158, 11, 0.7)',
-                  'rgba(245, 158, 11, 0.7)',
-                  'rgba(245, 158, 11, 0.7)',
-                  'rgba(16, 185, 129, 0.7)'
+                  createGradient(ctx, 'rgba(239, 68, 68, 0.9)', 'rgba(220, 38, 38, 0.6)'),
+                  createGradient(ctx, 'rgba(239, 68, 68, 0.9)', 'rgba(220, 38, 38, 0.6)'),
+                  createGradient(ctx, 'rgba(245, 158, 11, 0.9)', 'rgba(217, 119, 6, 0.6)'),
+                  createGradient(ctx, 'rgba(245, 158, 11, 0.9)', 'rgba(217, 119, 6, 0.6)'),
+                  createGradient(ctx, 'rgba(245, 158, 11, 0.9)', 'rgba(217, 119, 6, 0.6)'),
+                  createGradient(ctx, 'rgba(16, 185, 129, 0.9)', 'rgba(5, 150, 105, 0.6)')
                 ],
                 borderColor: [
                   'rgba(239, 68, 68, 1)',
@@ -1441,27 +1493,44 @@
                   'rgba(245, 158, 11, 1)',
                   'rgba(16, 185, 129, 1)'
                 ],
-                borderWidth: 2
+                borderWidth: 2,
+                borderRadius: 8,
+                borderSkipped: false,
+                hoverBackgroundColor: [
+                  'rgba(239, 68, 68, 1)',
+                  'rgba(239, 68, 68, 1)',
+                  'rgba(245, 158, 11, 1)',
+                  'rgba(245, 158, 11, 1)',
+                  'rgba(245, 158, 11, 1)',
+                  'rgba(16, 185, 129, 1)'
+                ]
               }]
             },
             options: {
               responsive: true,
               maintainAspectRatio: true,
+              animation: {
+                duration: 1500,
+                easing: 'easeInOutQuart'
+              },
               scales: {
                 y: {
                   beginAtZero: true,
                   max: 50,
                   ticks: {
                     color: '#cbd5e1',
-                    font: { size: 11 },
+                    font: { size: 12, weight: '500' },
                     callback: function(value) { return value + '%'; }
                   },
-                  grid: { color: 'rgba(203, 213, 225, 0.1)' }
+                  grid: { 
+                    color: 'rgba(203, 213, 225, 0.1)',
+                    lineWidth: 1
+                  }
                 },
                 x: {
                   ticks: {
                     color: '#cbd5e1',
-                    font: { size: 11, family: "'IBM Plex Sans Arabic', sans-serif" }
+                    font: { size: 12, family: "'IBM Plex Sans Arabic', sans-serif", weight: '500' }
                   },
                   grid: { display: false }
                 }
@@ -1469,15 +1538,18 @@
               plugins: {
                 legend: { display: false },
                 tooltip: {
-                  backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                  backgroundColor: 'rgba(15, 23, 42, 0.98)',
                   titleColor: '#fff',
                   bodyColor: '#cbd5e1',
-                  borderColor: 'rgba(59, 130, 246, 0.5)',
-                  borderWidth: 1,
-                  padding: 12,
+                  borderColor: 'rgba(59, 130, 246, 0.6)',
+                  borderWidth: 2,
+                  padding: 16,
+                  titleFont: { size: 15, weight: 'bold' },
+                  bodyFont: { size: 14 },
+                  cornerRadius: 8,
                   callbacks: {
                     label: function(context) {
-                      return 'الانتشار: ' + context.parsed.y + '%';
+                      return 'معدل الانتشار: ' + context.parsed.y + '%';
                     }
                   }
                 }
@@ -1486,9 +1558,20 @@
           });
         }
 
-        // 3. Generation Comparison Chart (Line Chart)
+        // 3. Generation Comparison Chart (Enhanced Line Chart with Gradients)
         const generationCtx = document.getElementById('generationComparisonChart');
         if (generationCtx) {
+          const ctx2 = generationCtx.getContext('2d');
+          
+          // Create gradients for area fills
+          const gradient1 = ctx2.createLinearGradient(0, 0, 0, 400);
+          gradient1.addColorStop(0, 'rgba(239, 68, 68, 0.3)');
+          gradient1.addColorStop(1, 'rgba(239, 68, 68, 0.01)');
+          
+          const gradient2 = ctx2.createLinearGradient(0, 0, 0, 400);
+          gradient2.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
+          gradient2.addColorStop(1, 'rgba(59, 130, 246, 0.01)');
+          
           new Chart(generationCtx, {
             type: 'line',
             data: {
@@ -1498,26 +1581,46 @@
                   label: 'عدد الحالات الصحية',
                   data: [10, 5, 2],
                   borderColor: 'rgba(239, 68, 68, 1)',
-                  backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                  borderWidth: 3,
+                  backgroundColor: gradient1,
+                  borderWidth: 4,
                   tension: 0.4,
-                  fill: true
+                  fill: true,
+                  pointRadius: 6,
+                  pointHoverRadius: 10,
+                  pointBackgroundColor: 'rgba(239, 68, 68, 1)',
+                  pointBorderColor: '#fff',
+                  pointBorderWidth: 3,
+                  pointHoverBackgroundColor: '#fff',
+                  pointHoverBorderColor: 'rgba(239, 68, 68, 1)',
+                  pointHoverBorderWidth: 3
                 },
                 {
                   label: 'متوسط العمر',
                   data: [75, 53, 25],
                   borderColor: 'rgba(59, 130, 246, 1)',
-                  backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                  borderWidth: 3,
+                  backgroundColor: gradient2,
+                  borderWidth: 4,
                   tension: 0.4,
                   fill: true,
-                  yAxisID: 'y1'
+                  yAxisID: 'y1',
+                  pointRadius: 6,
+                  pointHoverRadius: 10,
+                  pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                  pointBorderColor: '#fff',
+                  pointBorderWidth: 3,
+                  pointHoverBackgroundColor: '#fff',
+                  pointHoverBorderColor: 'rgba(59, 130, 246, 1)',
+                  pointHoverBorderWidth: 3
                 }
               ]
             },
             options: {
               responsive: true,
               maintainAspectRatio: true,
+              animation: {
+                duration: 1800,
+                easing: 'easeInOutQuart'
+              },
               interaction: {
                 mode: 'index',
                 intersect: false,
@@ -1530,14 +1633,17 @@
                   title: {
                     display: true,
                     text: 'عدد الحالات',
-                    color: '#cbd5e1',
-                    font: { size: 12, family: "'IBM Plex Sans Arabic', sans-serif" }
+                    color: '#fca5a5',
+                    font: { size: 13, family: "'IBM Plex Sans Arabic', sans-serif", weight: '600' }
                   },
                   ticks: {
                     color: '#cbd5e1',
-                    font: { size: 11 }
+                    font: { size: 12, weight: '500' }
                   },
-                  grid: { color: 'rgba(203, 213, 225, 0.1)' }
+                  grid: { 
+                    color: 'rgba(239, 68, 68, 0.1)',
+                    lineWidth: 1
+                  }
                 },
                 y1: {
                   type: 'linear',
@@ -1546,19 +1652,19 @@
                   title: {
                     display: true,
                     text: 'متوسط العمر',
-                    color: '#cbd5e1',
-                    font: { size: 12, family: "'IBM Plex Sans Arabic', sans-serif" }
+                    color: '#93c5fd',
+                    font: { size: 13, family: "'IBM Plex Sans Arabic', sans-serif", weight: '600' }
                   },
                   ticks: {
                     color: '#cbd5e1',
-                    font: { size: 11 }
+                    font: { size: 12, weight: '500' }
                   },
                   grid: { drawOnChartArea: false }
                 },
                 x: {
                   ticks: {
                     color: '#cbd5e1',
-                    font: { size: 12, family: "'IBM Plex Sans Arabic', sans-serif" }
+                    font: { size: 13, family: "'IBM Plex Sans Arabic', sans-serif", weight: '500' }
                   },
                   grid: { display: false }
                 }
@@ -1568,62 +1674,87 @@
                   position: 'top',
                   labels: {
                     color: '#cbd5e1',
-                    font: { size: 12, family: "'IBM Plex Sans Arabic', sans-serif" },
-                    padding: 15
+                    font: { size: 13, family: "'IBM Plex Sans Arabic', sans-serif", weight: '600' },
+                    padding: 18,
+                    usePointStyle: true,
+                    pointStyle: 'circle'
                   }
                 },
                 tooltip: {
-                  backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                  backgroundColor: 'rgba(15, 23, 42, 0.98)',
                   titleColor: '#fff',
                   bodyColor: '#cbd5e1',
-                  borderColor: 'rgba(59, 130, 246, 0.5)',
-                  borderWidth: 1,
-                  padding: 12
+                  borderColor: 'rgba(59, 130, 246, 0.6)',
+                  borderWidth: 2,
+                  padding: 16,
+                  titleFont: { size: 15, weight: 'bold' },
+                  bodyFont: { size: 14 },
+                  cornerRadius: 8
                 }
               }
             }
           });
         }
 
-        // Helper function to create pie charts for individual diseases
+        // Enhanced Helper function to create doughnut charts for individual diseases
         function createDiseaseChart(canvasId, affected, notAffected, colors) {
           const ctx = document.getElementById(canvasId);
           if (ctx) {
             new Chart(ctx, {
-              type: 'pie',
+              type: 'doughnut',
               data: {
                 labels: ['مصاب', 'غير مصاب'],
                 datasets: [{
                   data: [affected, notAffected],
                   backgroundColor: [colors.affected, colors.notAffected],
                   borderColor: [colors.affectedBorder, colors.notAffectedBorder],
-                  borderWidth: 2
+                  borderWidth: 3,
+                  hoverOffset: 12,
+                  hoverBorderWidth: 4,
+                  hoverBorderColor: '#fff'
                 }]
               },
               options: {
                 responsive: true,
                 maintainAspectRatio: true,
+                cutout: '60%',
+                animation: {
+                  animateRotate: true,
+                  animateScale: true,
+                  duration: 1500,
+                  easing: 'easeInOutQuart'
+                },
                 plugins: {
                   legend: {
                     position: 'bottom',
                     labels: {
                       color: '#cbd5e1',
-                      font: { size: 12, family: "'IBM Plex Sans Arabic', sans-serif" },
-                      padding: 10
+                      font: { 
+                        size: 13, 
+                        family: "'IBM Plex Sans Arabic', sans-serif",
+                        weight: '600'
+                      },
+                      padding: 15,
+                      usePointStyle: true,
+                      pointStyle: 'circle'
                     }
                   },
                   tooltip: {
-                    backgroundColor: 'rgba(30, 41, 59, 0.95)',
+                    backgroundColor: 'rgba(15, 23, 42, 0.98)',
                     titleColor: '#fff',
                     bodyColor: '#cbd5e1',
-                    borderColor: 'rgba(59, 130, 246, 0.5)',
-                    borderWidth: 1,
-                    padding: 12,
+                    borderColor: 'rgba(59, 130, 246, 0.6)',
+                    borderWidth: 2,
+                    padding: 16,
+                    titleFont: { size: 14, weight: 'bold' },
+                    bodyFont: { size: 13 },
+                    cornerRadius: 8,
+                    displayColors: true,
                     callbacks: {
                       label: function(context) {
                         const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                        const percentage = ((context.parsed / total) * 100).toFixed(0);
-                        return context.label + ': ' + context.parsed + ' (' + percentage + '%)';
+                        const percentage = ((context.parsed / total) * 100).toFixed(1);
+                        return context.label + ': ' + context.parsed + ' فرد (' + percentage + '%)';
                       }
                     }
                   }
@@ -1633,53 +1764,53 @@
           }
         }
 
-        // 4-9. Individual Disease Charts
+        // 4-9. Individual Disease Charts with Enhanced Colors
         // Diabetes (3 affected, 6 not affected)
         createDiseaseChart('diabetesChart', 3, 6, {
-          affected: 'rgba(239, 68, 68, 0.8)',
-          notAffected: 'rgba(30, 41, 59, 0.5)',
-          affectedBorder: 'rgba(239, 68, 68, 1)',
-          notAffectedBorder: 'rgba(51, 65, 85, 1)'
+          affected: 'rgba(239, 68, 68, 0.95)',
+          notAffected: 'rgba(51, 65, 85, 0.6)',
+          affectedBorder: 'rgba(220, 38, 38, 1)',
+          notAffectedBorder: 'rgba(71, 85, 105, 1)'
         });
 
         // Hypertension (4 affected, 5 not affected)
         createDiseaseChart('hypertensionChart', 4, 5, {
-          affected: 'rgba(239, 68, 68, 0.8)',
-          notAffected: 'rgba(30, 41, 59, 0.5)',
-          affectedBorder: 'rgba(239, 68, 68, 1)',
-          notAffectedBorder: 'rgba(51, 65, 85, 1)'
+          affected: 'rgba(239, 68, 68, 0.95)',
+          notAffected: 'rgba(51, 65, 85, 0.6)',
+          affectedBorder: 'rgba(220, 38, 38, 1)',
+          notAffectedBorder: 'rgba(71, 85, 105, 1)'
         });
 
         // Heart Disease (2 affected, 7 not affected)
         createDiseaseChart('heartDiseaseChart', 2, 7, {
-          affected: 'rgba(245, 158, 11, 0.8)',
-          notAffected: 'rgba(30, 41, 59, 0.5)',
-          affectedBorder: 'rgba(245, 158, 11, 1)',
-          notAffectedBorder: 'rgba(51, 65, 85, 1)'
+          affected: 'rgba(245, 158, 11, 0.95)',
+          notAffected: 'rgba(51, 65, 85, 0.6)',
+          affectedBorder: 'rgba(217, 119, 6, 1)',
+          notAffectedBorder: 'rgba(71, 85, 105, 1)'
         });
 
         // Cancer (1 affected, 8 not affected)
         createDiseaseChart('cancerChart', 1, 8, {
-          affected: 'rgba(245, 158, 11, 0.8)',
-          notAffected: 'rgba(30, 41, 59, 0.5)',
-          affectedBorder: 'rgba(245, 158, 11, 1)',
-          notAffectedBorder: 'rgba(51, 65, 85, 1)'
+          affected: 'rgba(245, 158, 11, 0.95)',
+          notAffected: 'rgba(51, 65, 85, 0.6)',
+          affectedBorder: 'rgba(217, 119, 6, 1)',
+          notAffectedBorder: 'rgba(71, 85, 105, 1)'
         });
 
         // Arthritis (1 affected, 8 not affected)
         createDiseaseChart('arthritisChart', 1, 8, {
-          affected: 'rgba(16, 185, 129, 0.8)',
-          notAffected: 'rgba(30, 41, 59, 0.5)',
-          affectedBorder: 'rgba(16, 185, 129, 1)',
-          notAffectedBorder: 'rgba(51, 65, 85, 1)'
+          affected: 'rgba(16, 185, 129, 0.95)',
+          notAffected: 'rgba(51, 65, 85, 0.6)',
+          affectedBorder: 'rgba(5, 150, 105, 1)',
+          notAffectedBorder: 'rgba(71, 85, 105, 1)'
         });
 
         // High Cholesterol (2 affected, 7 not affected)
         createDiseaseChart('cholesterolChart', 2, 7, {
-          affected: 'rgba(245, 158, 11, 0.8)',
-          notAffected: 'rgba(30, 41, 59, 0.5)',
-          affectedBorder: 'rgba(245, 158, 11, 1)',
-          notAffectedBorder: 'rgba(51, 65, 85, 1)'
+          affected: 'rgba(245, 158, 11, 0.95)',
+          notAffected: 'rgba(51, 65, 85, 0.6)',
+          affectedBorder: 'rgba(217, 119, 6, 1)',
+          notAffectedBorder: 'rgba(71, 85, 105, 1)'
         });
       });
     </script>
