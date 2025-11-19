@@ -386,11 +386,20 @@
 
       canvas {
         animation: fadeInUp 1s ease-out;
+        max-width: 100%;
+        height: auto !important;
       }
 
       /* Enhanced chart hover effects */
       canvas:hover {
         cursor: pointer;
+      }
+
+      /* Chart grid responsive layout */
+      @media (max-width: 1200px) {
+        div[style*="grid-template-columns: repeat(2, 1fr)"] {
+          grid-template-columns: 1fr !important;
+        }
       }
       
       /* Mobile Menu Backdrop */
@@ -481,6 +490,11 @@
 
         .header-features {
           grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        }
+
+        /* Fix charts alignment on tablet */
+        div[style*="grid-template-columns: repeat(2, 1fr)"] {
+          grid-template-columns: 1fr !important;
         }
       }
 
@@ -612,10 +626,16 @@
 
         /* Charts container */
         div[style*="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr))"],
-        div[style*="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))"] {
+        div[style*="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr))"],
+        div[style*="grid-template-columns: repeat(2, 1fr)"] {
           display: grid !important;
           grid-template-columns: 1fr !important;
           gap: 1.5rem !important;
+        }
+
+        /* Ensure chart containers have proper height on mobile */
+        div[style*="min-height: 350px"] {
+          min-height: auto !important;
         }
 
         /* Result box */
@@ -984,24 +1004,30 @@
           </div>
           
           <!-- Charts Grid -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 2rem;">
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2rem;">
             <!-- Risk Distribution Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease; min-height: 350px; display: flex; flex-direction: column;">
               <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">توزيع الخطورة</h4>
-              <canvas id="riskDistributionChart" style="max-height: 240px;"></canvas>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <canvas id="riskDistributionChart" style="max-height: 240px; width: 100%;"></canvas>
+              </div>
             </div>
             
             <!-- Disease Prevalence Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease; min-height: 350px; display: flex; flex-direction: column;">
               <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">معدلات انتشار الأمراض</h4>
-              <canvas id="diseasePrevalenceChart" style="max-height: 240px;"></canvas>
+              <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <canvas id="diseasePrevalenceChart" style="max-height: 240px; width: 100%;"></canvas>
+              </div>
             </div>
           </div>
           
           <!-- Generation Comparison Chart (Full Width) -->
-          <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); margin-top: 2rem; transition: all 0.3s ease;">
+          <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); margin-top: 1.5rem; transition: all 0.3s ease; min-height: 350px; display: flex; flex-direction: column;">
             <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">مقارنة الصحة حسب الأجيال</h4>
-            <canvas id="generationComparisonChart" style="max-height: 280px;"></canvas>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+              <canvas id="generationComparisonChart" style="max-height: 280px; width: 100%;"></canvas>
+            </div>
           </div>
         </div>
 
