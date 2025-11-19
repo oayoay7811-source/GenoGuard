@@ -45,6 +45,7 @@
         border-bottom: 1px solid rgba(37, 99, 235, 0.3);
         margin-left: 260px;
         z-index: 1100;
+        animation: fadeIn 0.6s ease-out;
       }
       
       .header-content {
@@ -66,6 +67,7 @@
         align-items: center;
         gap: 1.25rem;
         flex: 1;
+        animation: slideInRight 0.8s ease-out;
       }
       
       .header-logo {
@@ -74,6 +76,12 @@
         max-width: 500px;
         object-fit: contain;
         filter: brightness(1.3) contrast(1.15) saturate(1.1) drop-shadow(0 4px 12px rgba(37, 99, 235, 0.4));
+        transition: transform 0.3s ease, filter 0.3s ease;
+      }
+
+      .header-logo:hover {
+        transform: scale(1.05);
+        filter: brightness(1.4) contrast(1.2) saturate(1.2) drop-shadow(0 6px 16px rgba(37, 99, 235, 0.6));
       }
       
       header h1 {
@@ -82,6 +90,7 @@
         font-weight: 700;
         color: #ffffff;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+        animation: fadeInUp 0.8s ease-out 0.2s both;
       }
       
       header p {
@@ -169,6 +178,7 @@
         padding: 0 1.5rem 1.5rem;
         border-bottom: 2px solid var(--border);
         margin-bottom: 1rem;
+        position: relative;
       }
       
       .sidebar-title {
@@ -177,6 +187,18 @@
         color: var(--primary-light);
         margin: 0;
         text-align: center;
+        position: relative;
+      }
+
+      .sidebar-version {
+        display: block;
+        font-size: 0.75rem;
+        color: var(--text-light);
+        opacity: 0.7;
+        margin-top: 0.5rem;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.5px;
       }
       
       .sidebar-nav {
@@ -186,28 +208,60 @@
       }
       
       .sidebar-nav-link {
-        display: block;
-        padding: 0.875rem 1.5rem;
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
         color: var(--text-light);
         text-decoration: none;
-        transition: all 0.2s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         font-weight: 500;
         font-size: 0.95rem;
         border-left: 3px solid transparent;
         cursor: pointer;
+        position: relative;
+        margin-bottom: 0.25rem;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .sidebar-nav-link::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 5px 0 5px 5px;
+        border-color: transparent transparent transparent var(--primary-light);
+        opacity: 0;
+        transition: opacity 0.3s ease, right 0.3s ease;
       }
       
       .sidebar-nav-link:hover {
-        background: rgba(37, 99, 235, 0.1);
+        background: linear-gradient(90deg, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0.05) 100%);
         color: var(--primary-light);
         border-left-color: var(--primary-light);
+        padding-right: 2rem;
+        transform: translateX(5px);
+      }
+
+      .sidebar-nav-link:hover::after {
+        opacity: 1;
+        right: 0.75rem;
       }
       
       .sidebar-nav-link.active {
-        background: linear-gradient(90deg, rgba(37, 99, 235, 0.2) 0%, rgba(37, 99, 235, 0.05) 100%);
+        background: linear-gradient(90deg, rgba(37, 99, 235, 0.25) 0%, rgba(37, 99, 235, 0.1) 100%);
         color: var(--primary-light);
         border-left-color: var(--primary);
         font-weight: 600;
+        box-shadow: 0 2px 8px rgba(37, 99, 235, 0.2);
+      }
+
+      .sidebar-nav-link.active::after {
+        opacity: 1;
+        right: 0.75rem;
       }
       
       .section {
@@ -378,7 +432,7 @@
         z-index: 1200;
       }
 
-      /* Chart container animations */
+      /* Professional Animations */
       @keyframes fadeInUp {
         from {
           opacity: 0;
@@ -390,15 +444,134 @@
         }
       }
 
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          opacity: 0;
+          transform: scale(0.95);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -1000px 0;
+        }
+        100% {
+          background-position: 1000px 0;
+        }
+      }
+
+      /* Apply animations to sections */
+      .section {
+        animation: fadeInUp 0.8s ease-out;
+      }
+
+      .analysis-card {
+        animation: scaleIn 0.6s ease-out;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .analysis-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(124, 58, 237, 0.3);
+      }
+
+      .stat-card {
+        animation: fadeInUp 0.7s ease-out;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+      }
+
+      .member-card {
+        animation: slideInRight 0.6s ease-out;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .member-card:hover {
+        transform: translateX(-5px);
+      }
+
+      .sidebar-nav-link {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .sidebar-nav-link::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+        transition: right 0.5s ease;
+      }
+
+      .sidebar-nav-link:hover::before {
+        right: 100%;
+      }
+
       canvas {
         animation: fadeInUp 1s ease-out;
         max-width: 100%;
         height: auto !important;
       }
 
-      /* Enhanced chart hover effects */
       canvas:hover {
         cursor: pointer;
+      }
+
+      /* Stagger animations for grid items */
+      .section > *:nth-child(1) { animation-delay: 0.1s; }
+      .section > *:nth-child(2) { animation-delay: 0.2s; }
+      .section > *:nth-child(3) { animation-delay: 0.3s; }
+      .section > *:nth-child(4) { animation-delay: 0.4s; }
+      .section > *:nth-child(5) { animation-delay: 0.5s; }
+      .section > *:nth-child(6) { animation-delay: 0.6s; }
+
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+
+      /* Reduce motion for accessibility */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
       }
 
       /* Chart grid responsive layout */
@@ -797,12 +970,14 @@
     <nav class="sidebar" id="sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">التنقل</h2>
+        <span class="sidebar-version">الإصدار 1.0.0</span>
       </div>
       <ul class="sidebar-nav">
-        <li><a href="#familyData" class="sidebar-nav-link active">بيانات العائلة</a></li>
-        <li><a href="#healthOverview" class="sidebar-nav-link">نظرة عامة على الصحة</a></li>
-        <li><a href="#analysisReport" class="sidebar-nav-link">تقرير التحليل</a></li>
-        <li><a href="#recommendations" class="sidebar-nav-link">التوصيات</a></li>
+        <li><a href="#about" class="sidebar-nav-link active">عن المنصة</a></li>
+        <li><a href="#features" class="sidebar-nav-link">المميزات</a></li>
+        <li><a href="#howItWorks" class="sidebar-nav-link">كيف يعمل</a></li>
+        <li><a href="#benefits" class="sidebar-nav-link">الفوائد</a></li>
+        <li><a href="#demo" class="sidebar-nav-link">مثال تطبيقي</a></li>
       </ul>
     </nav>
 
@@ -849,6 +1024,244 @@
 
     <!-- Main Content -->
     <main>
+      <!-- About Section -->
+      <div class="section" id="about">
+        <h2 class="section-title">عن منصة جينوجارد</h2>
+        
+        <div class="analysis-card" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, var(--surface) 100%); border-color: var(--primary);">
+          <h3 class="analysis-card-title" style="background: rgba(37, 99, 235, 0.15);">ما هو جينوجارد؟</h3>
+          <div class="analysis-card-content">
+            <p style="font-size: 1.05rem; line-height: 1.9;">
+              <strong style="color: var(--primary-light);">جينوجارد</strong> هي منصة مبتكرة تستخدم الذكاء الاصطناعي المتقدم لتحليل التاريخ الصحي للعائلات عبر ثلاثة أجيال. نحن نساعدك على فهم المخاطر الصحية الوراثية وتقديم توصيات وقائية مخصصة لحماية مستقبلك وعائلتك.
+            </p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+              <div style="padding: 1.5rem; background: rgba(37, 99, 235, 0.05); border-radius: 12px; border: 2px solid rgba(37, 99, 235, 0.2);">
+                <h4 style="color: var(--primary-light); margin: 0.5rem 0; font-size: 1.1rem;">تحليل ذكي</h4>
+                <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">تحليل شامل للتاريخ الصحي بالذكاء الاصطناعي</p>
+              </div>
+              
+              <div style="padding: 1.5rem; background: rgba(16, 185, 129, 0.05); border-radius: 12px; border: 2px solid rgba(16, 185, 129, 0.2);">
+                <h4 style="color: #6ee7b7; margin: 0.5rem 0; font-size: 1.1rem;">توصيات مخصصة</h4>
+                <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">خطط صحية مصممة خصيصاً لك ولعائلتك</p>
+              </div>
+              
+              <div style="padding: 1.5rem; background: rgba(245, 158, 11, 0.05); border-radius: 12px; border: 2px solid rgba(245, 158, 11, 0.2);">
+                <h4 style="color: #fbbf24; margin: 0.5rem 0; font-size: 1.1rem;">وقاية مبكرة</h4>
+                <p style="margin: 0; font-size: 0.95rem; opacity: 0.9;">اكتشف المخاطر قبل ظهورها</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="section" id="features">
+        <h2 class="section-title">مميزات المنصة</h2>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+          <div class="analysis-card">
+            <h3 class="analysis-card-title">إدخال بيانات سهل</h3>
+            <div class="analysis-card-content">
+              <ul style="margin: 1rem 0; padding-right: 2rem;">
+                <li>واجهة بسيطة وسهلة الاستخدام</li>
+                <li>إدخال بيانات 3 أجيال (الأجداد، الوالدان، الأبناء)</li>
+                <li>تسجيل الحالات الصحية بدقة</li>
+                <li>حفظ البيانات بشكل آمن ومشفر</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="analysis-card">
+            <h3 class="analysis-card-title">تحليل بالذكاء الاصطناعي</h3>
+            <div class="analysis-card-content">
+              <ul style="margin: 1rem 0; padding-right: 2rem;">
+                <li>تحليل متقدم باستخدام أحدث تقنيات الذكاء الاصطناعي</li>
+                <li>اكتشاف الأنماط الوراثية</li>
+                <li>تقييم شامل للمخاطر الصحية</li>
+                <li>مقارنة مع البيانات الطبية العالمية</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="analysis-card">
+            <h3 class="analysis-card-title">تقارير تفصيلية</h3>
+            <div class="analysis-card-content">
+              <ul style="margin: 1rem 0; padding-right: 2rem;">
+                <li>رسوم بيانية تفاعلية</li>
+                <li>تحليل معدلات الانتشار</li>
+                <li>مقارنة بين الأجيال</li>
+                <li>تقييم مستوى الخطورة لكل حالة</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="analysis-card">
+            <h3 class="analysis-card-title">توصيات صحية</h3>
+            <div class="analysis-card-content">
+              <ul style="margin: 1rem 0; padding-right: 2rem;">
+                <li>خطط وقائية مخصصة</li>
+                <li>جدول فحوصات دورية</li>
+                <li>نصائح لتعديل نمط الحياة</li>
+                <li>إرشادات غذائية ورياضية</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="analysis-card">
+            <h3 class="analysis-card-title">أمان وخصوصية</h3>
+            <div class="analysis-card-content">
+              <ul style="margin: 1rem 0; padding-right: 2rem;">
+                <li>تشفير كامل للبيانات</li>
+                <li>خصوصية تامة للمعلومات</li>
+                <li>عدم مشاركة البيانات مع أطراف ثالثة</li>
+                <li>امتثال كامل لمعايير الخصوصية</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="analysis-card">
+            <h3 class="analysis-card-title">متوفر في كل مكان</h3>
+            <div class="analysis-card-content">
+              <ul style="margin: 1rem 0; padding-right: 2rem;">
+                <li>متوافق مع جميع الأجهزة</li>
+                <li>تصميم متجاوب للموبايل</li>
+                <li>الوصول من أي مكان</li>
+                <li>واجهة باللغة العربية</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- How It Works Section -->
+      <div class="section" id="howItWorks">
+        <h2 class="section-title">كيف يعمل جينوجارد؟</h2>
+        
+        <div style="position: relative;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05)); padding: 2rem; border-radius: 16px; border: 2px solid rgba(37, 99, 235, 0.3); position: relative;">
+              <div style="width: 50px; height: 50px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 1rem;">1</div>
+              <h3 style="color: var(--primary-light); margin-bottom: 1rem; font-size: 1.2rem;">إدخال البيانات</h3>
+              <p style="line-height: 1.8; margin: 0;">قم بإدخال التاريخ الصحي لعائلتك عبر ثلاثة أجيال. املأ نموذجاً بسيطاً يتضمن معلومات عن الأجداد، الوالدين، والأبناء، مع ذكر الحالات الصحية الرئيسية.</p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); padding: 2rem; border-radius: 16px; border: 2px solid rgba(16, 185, 129, 0.3); position: relative;">
+              <div style="width: 50px; height: 50px; background: #10b981; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 1rem;">2</div>
+              <h3 style="color: #6ee7b7; margin-bottom: 1rem; font-size: 1.2rem;">التحليل بالذكاء الاصطناعي</h3>
+              <p style="line-height: 1.8; margin: 0;">يقوم الذكاء الاصطناعي بتحليل البيانات المدخلة، اكتشاف الأنماط الوراثية، وتقييم المخاطر الصحية بناءً على قاعدة بيانات طبية ضخمة.</p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); padding: 2rem; border-radius: 16px; border: 2px solid rgba(245, 158, 11, 0.3); position: relative;">
+              <div style="width: 50px; height: 50px; background: #f59e0b; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 1rem;">3</div>
+              <h3 style="color: #fbbf24; margin-bottom: 1rem; font-size: 1.2rem;">التقرير الشامل</h3>
+              <p style="line-height: 1.8; margin: 0;">احصل على تقرير مفصل يتضمن تحليل المخاطر، رسوم بيانية توضيحية، ومعدلات انتشار الأمراض في عائلتك مقارنة بالمعدلات العامة.</p>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(147, 51, 234, 0.05)); padding: 2rem; border-radius: 16px; border: 2px solid rgba(147, 51, 234, 0.3); position: relative;">
+              <div style="width: 50px; height: 50px; background: #9333ea; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 1rem;">4</div>
+              <h3 style="color: #c4b5fd; margin-bottom: 1rem; font-size: 1.2rem;">التوصيات المخصصة</h3>
+              <p style="line-height: 1.8; margin: 0;">احصل على توصيات وقائية مخصصة، جدول فحوصات دورية، ونصائح لتعديل نمط الحياة بناءً على المخاطر المحددة لعائلتك.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Benefits Section -->
+      <div class="section" id="benefits">
+        <h2 class="section-title">الفوائد والتأثير</h2>
+        
+        <div class="analysis-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, var(--surface) 100%); border-color: var(--success);">
+          <h3 class="analysis-card-title" style="color: #6ee7b7;">لماذا تستخدم جينوجارد؟</h3>
+          <div class="analysis-card-content">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+              <div>
+                <h4 style="color: var(--primary-light); margin-bottom: 0.75rem; font-size: 1.1rem;">كشف مبكر</h4>
+                <p style="margin: 0; line-height: 1.7;">اكتشف المخاطر الصحية قبل ظهور الأعراض، مما يتيح لك الوقاية المبكرة والعلاج الفعال.</p>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--primary-light); margin-bottom: 0.75rem; font-size: 1.1rem;">توفير التكاليف</h4>
+                <p style="margin: 0; line-height: 1.7;">الوقاية أقل تكلفة بكثير من العلاج. قد توفر آلاف الريالات بالكشف المبكر.</p>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--primary-light); margin-bottom: 0.75rem; font-size: 1.1rem;">حماية العائلة</h4>
+                <p style="margin: 0; line-height: 1.7;">افهم المخاطر الوراثية التي قد تنتقل لأطفالك واتخذ الإجراءات الوقائية المناسبة.</p>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--primary-light); margin-bottom: 0.75rem; font-size: 1.1rem;">تحسين جودة الحياة</h4>
+                <p style="margin: 0; line-height: 1.7;">عش حياة أكثر صحة من خلال اتباع التوصيات المخصصة ونمط حياة أفضل.</p>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--primary-light); margin-bottom: 0.75rem; font-size: 1.1rem;">قرارات مبنية على العلم</h4>
+                <p style="margin: 0; line-height: 1.7;">اتخذ قرارات صحية مستنيرة بناءً على تحليل علمي دقيق لتاريخ عائلتك.</p>
+              </div>
+              
+              <div>
+                <h4 style="color: var(--primary-light); margin-bottom: 0.75rem; font-size: 1.1rem;">مساعدة الطبيب</h4>
+                <p style="margin: 0; line-height: 1.7;">شارك التقرير مع طبيبك لمساعدته في تقديم رعاية صحية أكثر دقة وتخصيصاً.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2rem;">
+          <div class="stats-grid">
+            <div class="stat-card" style="background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.05)); border: 2px solid rgba(37, 99, 235, 0.3);">
+              <div class="stat-number" style="color: var(--primary);">60%</div>
+              <div class="stat-label">تقليل المخاطر</div>
+              <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">من خلال الوقاية المبكرة</p>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05)); border: 2px solid rgba(16, 185, 129, 0.3);">
+              <div class="stat-number" style="color: #10b981;">3</div>
+              <div class="stat-label">أجيال</div>
+              <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">تحليل شامل</p>
+            </div>
+            <div class="stat-card" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05)); border: 2px solid rgba(245, 158, 11, 0.3);">
+              <div class="stat-number" style="color: #f59e0b;">24/7</div>
+              <div class="stat-label">متاح دائماً</div>
+              <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">في أي وقت ومن أي مكان</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo Section -->
+      <div class="section" id="demo">
+        <h2 class="section-title">مثال تطبيقي - تقرير عائلة نموذجي</h2>
+        
+        <div style="background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(124, 58, 237, 0.05)); padding: 2rem; border-radius: 16px; border: 2px solid rgba(147, 51, 234, 0.3); margin-bottom: 2rem;">
+          <h3 style="color: #c4b5fd; margin-bottom: 1rem; font-size: 1.3rem; text-align: center;">نموذج تقرير صحي كامل</h3>
+          <p style="text-align: center; font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem; opacity: 0.95;">
+            هذا مثال واقعي لتقرير تم إنشاؤه بواسطة جينوجارد لعائلة افتراضية. يوضح هذا المثال كيفية عرض البيانات، التحليلات، والتوصيات بشكل شامل ومفصل.
+          </p>
+          <div style="text-align: center; background: rgba(147, 51, 234, 0.1); padding: 1rem; border-radius: 8px;">
+            <p style="margin: 0; font-weight: 600; color: var(--primary-light);">قم بالتمرير للأسفل لمشاهدة التقرير الكامل</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Original Content Below (As Demo) -->
+      <div style="border-top: 3px solid var(--primary); padding-top: 2rem; margin-top: 2rem; background: linear-gradient(135deg, rgba(15, 23, 42, 0.5), rgba(30, 41, 59, 0.3)); border-radius: 16px; padding: 2rem; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);">
+        
+        <!-- Demo Header -->
+        <div style="text-align: center; margin-bottom: 3rem;">
+          <div style="display: inline-block; background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(124, 58, 237, 0.1)); padding: 1rem 2.5rem; border-radius: 16px; border: 3px solid rgba(147, 51, 234, 0.4); margin-bottom: 1rem;">
+            <h2 style="margin: 0; color: #c4b5fd; font-size: 1.8rem; font-weight: 800;">المثال التطبيقي الكامل</h2>
+          </div>
+          <p style="font-size: 1.1rem; color: var(--text-light); max-width: 800px; margin: 1.5rem auto; line-height: 1.9;">
+            فيما يلي مثال حقيقي لتقرير صحي كامل تم إنشاؤه بواسطة منصة جينوجارد. يشمل التقرير بيانات العائلة، التحليلات الصحية، الرسوم البيانية التفاعلية، والتوصيات الوقائية المخصصة.
+          </p>
+          <div style="display: inline-block; background: rgba(37, 99, 235, 0.1); padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid rgba(37, 99, 235, 0.3);">
+            <p style="margin: 0; font-size: 0.95rem; color: var(--primary-light); font-weight: 600;">
+              هذا المثال يوضح جميع الميزات والإمكانيات المتاحة في المنصة
+            </p>
+          </div>
+        </div>
+
       <!-- Family Data Section -->
       <div class="section" id="familyData">
         <h2 class="section-title">بيانات العائلة</h2>
@@ -1316,11 +1729,13 @@
             <p><strong>تنويه طبي:</strong></p>
             <p>هذا التحليل هو لأغراض تعليمية وإعلامية فقط ولا يجب اعتباره بديلاً عن المشورة الطبية المهنية أو التشخيص أو العلاج. استشر دائماً طبيبك أو مقدم الرعاية الصحية المؤهل بشأن أي أسئلة قد تكون لديك حول حالة طبية. لا تتجاهل المشورة الطبية المهنية أو تؤخر في طلبها بسبب شيء قرأته في هذا التقرير.</p>
             <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.85;">
-              <strong>مصدر البيانات:</strong> تم إنشاء هذا التحليل بواسطة الذكاء الاصطناعي باستخدام نماذج لغوية متقدمة (GPT-4 / Gemini) بناءً على البيانات المقدمة. النتائج تقديرية وتعتمد على الأنماط الإحصائية والأبحاث الطبية العامة.
+              <strong>مصدر البيانات:</strong> تم إنشاء هذا التحليل بواسطة الذكاء الاصطناعي باستخدام نماذج لغوية متقدمة بناءً على البيانات المقدمة. النتائج تقديرية وتعتمد على الأنماط الإحصائية والأبحاث الطبية العامة.
             </p>
           </div>
         </div>
       </div>
+      </div>
+      <!-- End of Demo Section -->
     </main>
 
     <!-- Footer -->
