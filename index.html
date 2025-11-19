@@ -751,7 +751,7 @@
 
         /* Charts */
         canvas {
-          max-height: 250px !important;
+          max-height: 200px !important;
         }
       }
     </style>
@@ -986,22 +986,22 @@
           <!-- Charts Grid -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 2rem;">
             <!-- Risk Distribution Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
-              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.15rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">📊 توزيع الخطورة</h4>
-              <canvas id="riskDistributionChart" style="max-height: 300px;"></canvas>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
+              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">توزيع الخطورة</h4>
+              <canvas id="riskDistributionChart" style="max-height: 240px;"></canvas>
             </div>
             
             <!-- Disease Prevalence Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
-              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.15rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">📈 معدلات انتشار الأمراض</h4>
-              <canvas id="diseasePrevalenceChart" style="max-height: 300px;"></canvas>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); transition: all 0.3s ease;">
+              <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">معدلات انتشار الأمراض</h4>
+              <canvas id="diseasePrevalenceChart" style="max-height: 240px;"></canvas>
             </div>
           </div>
           
           <!-- Generation Comparison Chart (Full Width) -->
-          <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); margin-top: 2rem; transition: all 0.3s ease;">
-            <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.15rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">👨‍👩‍👧‍👦 مقارنة الصحة حسب الأجيال</h4>
-            <canvas id="generationComparisonChart" style="max-height: 350px;"></canvas>
+          <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(59, 130, 246, 0.35); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 0 20px rgba(59, 130, 246, 0.1); margin-top: 2rem; transition: all 0.3s ease;">
+            <h4 style="color: rgba(147, 197, 253, 1); font-size: 1.1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);">مقارنة الصحة حسب الأجيال</h4>
+            <canvas id="generationComparisonChart" style="max-height: 280px;"></canvas>
           </div>
         </div>
 
@@ -1020,56 +1020,56 @@
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; justify-items: center;">
             
             <!-- Diabetes Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(239, 68, 68, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-              <h4 style="color: #fca5a5; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🩺 السكري من النوع 2</h4>
-              <canvas id="diabetesChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(239, 68, 68, 0.3);">
-                <span style="color: rgba(252, 165, 165, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 33%</span>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(239, 68, 68, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fca5a5; font-size: 1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">السكري من النوع 2</h4>
+              <canvas id="diabetesChart" style="max-height: 200px;"></canvas>
+              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid rgba(239, 68, 68, 0.3);">
+                <span style="color: rgba(252, 165, 165, 1); font-size: 0.9rem; font-weight: 700;">معدل الانتشار: 33%</span>
               </div>
             </div>
 
             <!-- Hypertension Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(239, 68, 68, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-              <h4 style="color: #fca5a5; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">💓 ارتفاع ضغط الدم</h4>
-              <canvas id="hypertensionChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(239, 68, 68, 0.3);">
-                <span style="color: rgba(252, 165, 165, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 44%</span>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(239, 68, 68, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(239, 68, 68, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fca5a5; font-size: 1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">ارتفاع ضغط الدم</h4>
+              <canvas id="hypertensionChart" style="max-height: 200px;"></canvas>
+              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid rgba(239, 68, 68, 0.3);">
+                <span style="color: rgba(252, 165, 165, 1); font-size: 0.9rem; font-weight: 700;">معدل الانتشار: 44%</span>
               </div>
             </div>
 
             <!-- Heart Disease Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-              <h4 style="color: #fbbf24; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">❤️ أمراض القلب</h4>
-              <canvas id="heartDiseaseChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
-                <span style="color: rgba(251, 191, 36, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 22%</span>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fbbf24; font-size: 1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">أمراض القلب</h4>
+              <canvas id="heartDiseaseChart" style="max-height: 200px;"></canvas>
+              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
+                <span style="color: rgba(251, 191, 36, 1); font-size: 0.9rem; font-weight: 700;">معدل الانتشار: 22%</span>
               </div>
             </div>
 
             <!-- Cancer Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-              <h4 style="color: #fbbf24; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🎗️ سرطان القولون</h4>
-              <canvas id="cancerChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
-                <span style="color: rgba(251, 191, 36, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 11%</span>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fbbf24; font-size: 1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">سرطان القولون</h4>
+              <canvas id="cancerChart" style="max-height: 200px;"></canvas>
+              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
+                <span style="color: rgba(251, 191, 36, 1); font-size: 0.9rem; font-weight: 700;">معدل الانتشار: 11%</span>
               </div>
             </div>
 
             <!-- Arthritis Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(16, 185, 129, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-              <h4 style="color: #6ee7b7; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🦴 التهاب المفاصل</h4>
-              <canvas id="arthritisChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(16, 185, 129, 0.3);">
-                <span style="color: rgba(110, 231, 183, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 11%</span>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(16, 185, 129, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #6ee7b7; font-size: 1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">التهاب المفاصل</h4>
+              <canvas id="arthritisChart" style="max-height: 200px;"></canvas>
+              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid rgba(16, 185, 129, 0.3);">
+                <span style="color: rgba(110, 231, 183, 1); font-size: 0.9rem; font-weight: 700;">معدل الانتشار: 11%</span>
               </div>
             </div>
 
             <!-- High Cholesterol Chart -->
-            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.75rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
-              <h4 style="color: #fbbf24; font-size: 1.05rem; font-weight: 700; margin: 0 0 1.25rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">🩸 ارتفاع الكوليسترول</h4>
-              <canvas id="cholesterolChart" style="max-height: 250px;"></canvas>
-              <div style="text-align: center; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
-                <span style="color: rgba(251, 191, 36, 1); font-size: 0.95rem; font-weight: 700;">معدل الانتشار: 22%</span>
+            <div style="background: linear-gradient(135deg, rgba(30, 41, 59, 0.98), rgba(51, 65, 85, 0.95)); border-radius: 16px; padding: 1.5rem; border: 2px solid rgba(245, 158, 11, 0.5); width: 100%; max-width: 400px; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 0 20px rgba(0, 0, 0, 0.2); transition: all 0.3s ease;">
+              <h4 style="color: #fbbf24; font-size: 1rem; font-weight: 700; margin: 0 0 1rem 0; text-align: center; text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);">ارتفاع الكوليسترول</h4>
+              <canvas id="cholesterolChart" style="max-height: 200px;"></canvas>
+              <div style="text-align: center; margin-top: 1rem; padding-top: 1rem; border-top: 2px solid rgba(245, 158, 11, 0.3);">
+                <span style="color: rgba(251, 191, 36, 1); font-size: 0.9rem; font-weight: 700;">معدل الانتشار: 22%</span>
               </div>
             </div>
 
